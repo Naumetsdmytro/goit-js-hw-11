@@ -1,0 +1,83 @@
+body {
+  color: #757575;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.search-form {
+  text-align: center;
+  background-color: #faebd7;
+  padding: 20px;
+}
+
+.input-form {
+  display: inline-block;
+  width: 190px;
+  margin-right: 6px;
+  padding-left: 5px;
+  height: 30px;
+  font-size: 17px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.form-button {
+  font-size: 17px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  background: #5f9ea0;
+  cursor: pointer;
+  margin: 0 auto;
+  text-align: center;
+  display: inline-block;
+  padding: 0 15px;
+  border-radius: 4px;
+  border: none;
+}
+
+.gallery {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  width: 1280px;
+  margin: 40px auto 0 auto;
+}
+
+.photo-card {
+  margin-right: 15px;
+  margin-top: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.info {
+  padding-left: 15px;
+}
+
+.info-item {
+  font-size: 17px;
+}
+
+.load-more {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  font-size: 18px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  background: #5f9ea0;
+  cursor: pointer;
+  margin: 25px auto 0 auto;
+  text-align: center;
+  padding: 3px 25px;
+  border-radius: 4px;
+  border: none;
+}
