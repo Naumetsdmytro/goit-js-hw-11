@@ -2,8 +2,6 @@ import '../css/styles.css';
 import { createMarkup } from './createpicturemarkup';
 import Notiflix from 'notiflix';
 import { picturesApiSer } from './fetchpictures';
-// import SimpleLightbox from 'simplelightbox';
-// import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const formEl = document.querySelector('.search-form');
 const galleryEl = document.querySelector('.gallery');
@@ -15,30 +13,43 @@ buttonLoad.addEventListener('click', onButtonLoadMore);
 async function onFormSubmit(evt) {
   evt.preventDefault();
   picturesApiSer.newQuery(formEl.elements.searchQuery.value.trim());
+
   if (picturesApiSer.searchQuery === '') {
     removeButtonClass();
     removeMarkup();
     return;
   }
+
   try {
     picturesApiSer.resetPage();
     const pictures = await picturesApiSer.fetchPictures();
+
     removeMarkup();
     showNotifixSuccess(pictures.hits.length, pictures);
-    // accessShowButton(pictures.totalHits);
+
     buttonLoad.classList.add('show');
+    if (pictures.totalHits <= (picturesApiSer.page - 1) * 40) {
+      removeButtonClass();
+    }
+
     showNotifixFailure(pictures.hits.length);
     addMarkup(pictures.hits);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
 async function onButtonLoadMore() {
   const pictures = await picturesApiSer.fetchPictures();
-  console.log(pictures.totalHits);
-  accessShowButton(pictures.totalHits);
+
+  if (pictures.hits.length < 40) {
+    removeButtonClass();
+  }
   addMarkup(pictures.hits);
+}
+
+function removeButtonClass() {
+  buttonLoad.classList.remove('show');
 }
 
 function addMarkup(pictures) {
@@ -47,17 +58,6 @@ function addMarkup(pictures) {
 
 function removeMarkup() {
   galleryEl.innerHTML = '';
-}
-
-function removeButtonClass() {
-  buttonLoad.classList.remove('show');
-}
-
-function accessShowButton(totalPictures) {
-  let total = totalPictures;
-  if (total - 40 <= 0) {
-    removeButtonClass();
-  }
 }
 
 function showNotifixFailure(picturesCount) {
@@ -79,3 +79,6 @@ function showNotifixSuccess(picturesCount, pictures) {
 //   captionsData: 'alt',
 //   captionDelay: 250,
 // });
+
+// import SimpleLightbox from 'simplelightbox';
+// import 'simplelightbox/dist/simple-lightbox.min.css';
