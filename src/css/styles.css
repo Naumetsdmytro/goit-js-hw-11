@@ -36,6 +36,9 @@ body {
   border-radius: 7px;
   border: none;
 }
+.form-button:hover {
+  font-size: 19px;
+}
 
 .gallery {
   display: flex;

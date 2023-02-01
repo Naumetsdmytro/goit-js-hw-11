@@ -14,7 +14,7 @@ export const createMarkup = pictures => {
         downloads,
       }) => {
         const pictureRow = `<div class="photo-card">
-        <a class="gallery__item"href="${largeImageURL}"><img src="${webformatURL}" alt="${tags}" loading="lazy"width="300"height="200"/></a>
+        <img src="${webformatURL}" alt="${tags}" loading="lazy"width="300"height="200"/>
     <div class="info">
         <p class="info-item">
         <b>Likes: ${likes}</b>
