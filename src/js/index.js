@@ -6,7 +6,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import simpleLightbox from 'simplelightbox';
 
-var lightbox = new SimpleLightbox('.gallery .gallery__item', {
+const lightbox = new SimpleLightbox('.gallery .gallery__item', {
   captionDelay: 250,
 });
 
