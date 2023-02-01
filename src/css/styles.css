@@ -36,8 +36,9 @@ body {
   border-radius: 7px;
   border: none;
 }
+
 .form-button:hover {
-  font-size: 19px;
+  background-color: #66cdaa;
 }
 
 .gallery {
@@ -84,4 +85,8 @@ body {
   padding: 3px 25px;
   border-radius: 4px;
   border: none;
+}
+
+.show:hover {
+  background-color: #66cdaa;
 }
