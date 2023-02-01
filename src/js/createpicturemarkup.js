@@ -14,7 +14,7 @@ export const createMarkup = pictures => {
         downloads,
       }) => {
         const pictureRow = `<div class="photo-card">
-        <img src="${webformatURL}" alt="${tags}" loading="lazy"width="300"height="200"/>
+        <a href="${largeImageURL}" class="gallery__item"><img src="${webformatURL}" alt="${tags}" loading="lazy"width="300"height="200"/></a>
     <div class="info">
         <p class="info-item">
         <b>Likes: ${likes}</b>
@@ -35,8 +35,3 @@ export const createMarkup = pictures => {
     )
     .join('');
 };
-
-// var lightbox = new SimpleLightbox('.photo-card .gallery__item', {
-//   captionsData: 'alt',
-//   captionDelay: 250,
-// });

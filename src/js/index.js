@@ -2,6 +2,13 @@ import '../css/styles.css';
 import { createMarkup } from './createpicturemarkup';
 import Notiflix from 'notiflix';
 import { picturesApiSer } from './fetchpictures';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+import simpleLightbox from 'simplelightbox';
+
+var lightbox = new SimpleLightbox('.gallery .gallery__item', {
+  captionDelay: 250,
+});
 
 const formEl = document.querySelector('.search-form');
 const galleryEl = document.querySelector('.gallery');
@@ -34,6 +41,7 @@ async function onFormSubmit(evt) {
 
     showNotifixFailure(pictures.hits.length);
     addMarkup(pictures.hits);
+    lightbox.refresh();
   } catch (error) {
     console.error(error);
   }
@@ -46,6 +54,7 @@ async function onButtonLoadMore() {
     removeButtonClass();
   }
   addMarkup(pictures.hits);
+  lightbox.refresh();
 }
 
 function removeButtonClass() {
@@ -74,11 +83,3 @@ function showNotifixSuccess(picturesCount, pictures) {
     Notiflix.Notify.success(`Hooray! We found ${pictures.totalHits} images.`);
   }
 }
-
-// var lightbox = new SimpleLightbox('.gallery__item', {
-//   captionsData: 'alt',
-//   captionDelay: 250,
-// });
-
-// import SimpleLightbox from 'simplelightbox';
-// import 'simplelightbox/dist/simple-lightbox.min.css';
