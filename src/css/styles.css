@@ -12,12 +12,12 @@ body {
 
 .input-form {
   display: inline-block;
-  width: 190px;
+  width: 200px;
   margin-right: 6px;
   padding-left: 5px;
   height: 30px;
   font-size: 17px;
-  border-radius: 5px;
+  border-radius: 7px;
   border: 1px solid black;
 }
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default picturesApiSer = {
+export const picturesApiSer = {
   searchQuery: '',
   page: 1,
 
